@@ -14,7 +14,7 @@ public class TheMinPaceReachLastNum {
     private static int reachLast(int[] arr){
 
         //当前能达到的最大索引处
-        int currMaxIndex =  arr[0];
+        int currMaxIndex = arr[0];
         //当前位置前能达到的最大索引处
         int preMaxIndex = arr[0];
         //最小次数
@@ -36,6 +36,27 @@ public class TheMinPaceReachLastNum {
             }
         }
 
+        return min;
+    }
+
+    private static int pace(int[] arr)
+    {
+        int min = 1;
+        if(arr.length<2)return 0;
+        int preMaxIndex = arr[0];
+        int currMaxIndex = arr[0];
+
+        for (int i = 0; i < arr.length; i++) {
+            if(i > currMaxIndex)
+            {
+                min++;
+                currMaxIndex = preMaxIndex;
+            }
+            if(arr[i]+i > preMaxIndex)
+            {
+                preMaxIndex = arr[i]+i;
+            }
+        }
         return min;
     }
 }

@@ -6,7 +6,8 @@ package com.company.greedy;
  */
 public class ReachLastNumber {
     public static void main(String[] args) {
-        int[] arr = {3,2,1,0,4};
+        int[] arr = {1,4,1,1,1};
+        //pace = [0+3,1+2,2+1,3+0,4+4] = [3,3,3,3,8] 当前位置能达到的最大索引处
         System.out.println(reachLast(arr));
     }
     private static boolean reachLast(int[] arr){
@@ -16,8 +17,8 @@ public class ReachLastNumber {
         }
         int position = 0;
         int max_pace = pace[0];
-        while(position < pace.length && position < max_pace){
-            if(max_pace<pace[position]) {
+        while(position < pace.length && position <= max_pace){
+            if(max_pace < pace[position]) {
                 max_pace = pace[position];
             }
             position++;
